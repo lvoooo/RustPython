@@ -722,7 +722,7 @@ impl PyArray {
     #[pymethod(name = "__eq__")]
     fn eq(&self, other: PyObjectRef, vm: &VirtualMachine) -> PyResult<PyComparisonValue> {
         let lhs = self.borrow_value();
-        let rhs = class_or_notimplemented!(vm, Self, other);
+        let rhs = class_or_notimplemented!(Self, other);
         let rhs = rhs.borrow_value();
         if lhs.len() != rhs.len() {
             Ok(PyArithmaticValue::Implemented(false))
@@ -745,7 +745,7 @@ impl PyArray {
     #[pymethod(name = "__lt__")]
     fn lt(&self, other: PyObjectRef, vm: &VirtualMachine) -> PyResult<PyComparisonValue> {
         let lhs = self.borrow_value();
-        let rhs = class_or_notimplemented!(vm, Self, other);
+        let rhs = class_or_notimplemented!(Self, other);
         let rhs = rhs.borrow_value();
 
         for (a, b) in lhs.iter(vm).zip(rhs.iter(vm)) {
@@ -762,7 +762,7 @@ impl PyArray {
     #[pymethod(name = "__le__")]
     fn le(&self, other: PyObjectRef, vm: &VirtualMachine) -> PyResult<PyComparisonValue> {
         let lhs = self.borrow_value();
-        let rhs = class_or_notimplemented!(vm, Self, other);
+        let rhs = class_or_notimplemented!(Self, other);
         let rhs = rhs.borrow_value();
 
         for (a, b) in lhs.iter(vm).zip(rhs.iter(vm)) {
@@ -779,7 +779,7 @@ impl PyArray {
     #[pymethod(name = "__gt__")]
     fn gt(&self, other: PyObjectRef, vm: &VirtualMachine) -> PyResult<PyComparisonValue> {
         let lhs = self.borrow_value();
-        let rhs = class_or_notimplemented!(vm, Self, other);
+        let rhs = class_or_notimplemented!(Self, other);
         let rhs = rhs.borrow_value();
 
         for (a, b) in lhs.iter(vm).zip(rhs.iter(vm)) {
@@ -796,7 +796,7 @@ impl PyArray {
     #[pymethod(name = "__ge__")]
     fn ge(&self, other: PyObjectRef, vm: &VirtualMachine) -> PyResult<PyComparisonValue> {
         let lhs = self.borrow_value();
-        let rhs = class_or_notimplemented!(vm, Self, other);
+        let rhs = class_or_notimplemented!(Self, other);
         let rhs = rhs.borrow_value();
 
         for (a, b) in lhs.iter(vm).zip(rhs.iter(vm)) {
